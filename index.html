@@ -6,7 +6,7 @@
 	<title>(가제) 공주와 돼지2</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@500;600;700;900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
 	<style type="text/css">
 		*{box-sizing: border-box ;}
 		html{font-size: 16px; font-family: 'Noto Sans KR', sans-serif; word-break: keep-all;}
@@ -26,7 +26,9 @@
 			text-align: center;
 			line-height: 95px;
 			border-radius: 50px;
-			border: 1px solid black;}
+			border: 1px solid black;
+			box-shadow: 0 0 4px black;
+			color: black;}
 		a:hover{background: black; color: white;  box-shadow: 0px 0px 20px black;
 			transition: all 0.3s; border: none;}
 		section{padding: 100px;}
@@ -50,27 +52,63 @@
 		.textalign-right{text-align: right;}
 		.textalign-center{text-align: center;}
 		.gradient{}
-		.background-fixed{background: url('princess.png'); filter: brightness(0.2); background-size: 100%; height: 500px ;background-attachment: fixed; color: white;}
+		.background-fixed{background: url('princess.png'); filter: brightness(0.35); background-size: 100%; height: 500px ;background-attachment: fixed; color: white; background-position: 0px, 50px;}
+		.marginauto{margin: auto;}
 		.errw2 {display: inline-block; 
     			position:relative; background-size: 0% 100%;
     			background: url('white.svg') bottom repeat-x; }
-    	.errw {display: inline-block; 
+    .errw {display: inline-block; 
     			position:relative; background-size: 0% 100%;
     			background: url('white2.svg') bottom repeat-x; }
+    .errb {display: inline-block;
+    			position:relative; background-size: 0% 100%;
+    			background: url('black.svg') bottom repeat-x;}
+    	.pig:hover{content: url(pig.png);}
+    	.container{  position: absolute;  vertical-align: middle;  display: flex;  align-items: center;  justify-content: center;  width: 100%;
+  height: 100%;  white-space: nowrap;
+}
+.container div{
+  position: absolute; mix-blend-mode: multiply;}
+.overflow{overflow: hidden;}
+.red {
+  color: rgba(0,0,0,0.9);
+  animation: animateRed 2s infinite ease alternate;mix-blend-mode: multiply;
+}
+.green {
+  color: rgba(100,0,0,0.2);
+  animation: animateGreen 2s infinite ease alternate;mix-blend-mode: multiply;
+}
+.blue {
+  color: rgba(0,0,100,0.2);
+  animation: animateBlue 2s infinite ease alternate;mix-blend-mode: multiply;
+}
+
+@keyframes animateRed {
+    0% { }
+  100% { transform:  scale(1.2, 1.2)}
+}
+
+@keyframes animateGreen {
+    0% { transform: translate( 0, 0 ) }
+  100% { transform: translate( 3px, 0px ) scale(1.2, 1.2) skewX(-2deg) }
+}
+
+@keyframes animateBlue {
+    0% { transform: translate( 0, 0 ) }
+  100% { transform: translate( -3px, 0px ) scale(1.2, 1.2) }
+}
 
 	</style>
 </head>
 <body>
 <section class="black" style="height: 25vh;">
+</section>
+<section class="black text-white" style="padding:0px; position: relative;">
+	<div class="col-1 textalign-center serif marginauto" style="position: absolute; top: 175px; z-index: 2;"><h4 style="font-weight: 400">“살려주세요 총리님!<br>전 지금 납치범에게 붙잡혀 있답니다.<br>오직 <b class="sans">당신</b>만이 절 살릴 수 있어요!”</h4></div>
+	<div class="background-fixed"></div>
 	
 </section>
-<section class="black text-white" style="padding:0px;">
-	<div class="textalign-center serif" style="position: relative; top: 30vh; z-index: 2;"><h4 style="font-weight: 200">살려주세요 총리님!<br>전 지금 납치범에게 붙잡혀 있답니다.<br>오직 <b class="sans">당신</b>만이 절 살릴 수 있어요!<h4></div>
-	<div class="background-fixed">
-	</div>
-	
-	</section>
-<section class="black text-white">
+<section class="black text-white overflow">
 <div class="row">
 	<div class="col-2">
 		<h2>세상에나.</h2>
@@ -88,6 +126,11 @@
 	</div>
 	<div class="col-2"></div>
 </div>
+<div class="row" style="position: relative; height: 1600px">
+	<img src="pig2.png" style="width: 1600px; position: absolute; right: -1200px;">
+	<img src="pig2.png" onclick="" class="pig" style="width: 1600px; position: absolute; left: -1000px; top: 1000px;">
+	<audio src="pig.mp3" autoplay preload="auto"></audio>
+</div>
 <div class="row">
 	<div class="col-2"></div>
 	<div class="col-2 textalign-right serif">
@@ -99,7 +142,7 @@
 <div class="row">
 	<div class="col-2">
 		<h2>뚝.</h2>
-		<p>지금 무슨 일이 일어난거지? 납치? 실시간? 돼지와... <b class="serif"><i>뭐?</i></b><br><br>미쳐버릴 것 같았지. 한가지 확실한 건, 너 혼자 해결할 문제가 아니란거야! 너는 서둘러 믿음직한 측근들을 모아 긴급회의를 시작했어. </p>
+		<p>지금 무슨 일이 일어난거지? 납치? 실시간? 돼지와... <b class="serif"><i>뭐?</i></b><br><br>미쳐버릴 것 같았지. 한가지 확실한 건, <br>너 혼자 해결할 문제가 아니란거야!<br>너는 서둘러 믿음직한 측근들을 모아 긴급회의를 시작했어. </p>
 	</div>
 	<div class="col-2"></div>
 </div>
@@ -108,29 +151,48 @@
 	<div class="row">
 		<div class="col-2"></div>
 		<div class="col-2">
-			<p><b>AM 6:32 국무조정실</b><br>이런... 측근 중 누군가가 외부에 발설했나봐! 믿고있었는데. 사건은 언론사와 SNS에 점점 퍼지고 있었어. 하지만 이대로 간다면 국제적 망신을 당하겠는걸?</p>
+			<p><b>AM 6:32 국무조정실</b><br>이런... 우리 중 누군가가 외부에 발설한 모양이야! 참 믿을 사람 없다니까.<br> 공주 납치사건은 언론사와 SNS에 점점 퍼지고 있었어. 너는 이미, 국민들 <b class="serif errb">머리 속에서 그 짓을 하고 있다고</b>!</p>
 		</div>
 	</div>
-	<img src="hand1.png" style=" width: 70vw; position: relative; right: -450px; top: 100px;">
-	<div class="row">
-	<div class="col-1 textalign-center serif">
-		<h3>
+</section>
+<section style="padding: 0; height: 1000px">
+	<div style="position: relative;">
+		<img src="hand1.png" style=" width: 1100px; position: absolute; right: 0px; top: 0px;">
+		<div class="row" style="position: relative; top:435px">
+			<div class="col-1 textalign-center serif container red">
+			<h3>
+
 			“흉문이 퍼지는 것을 <b>한시라도 막아야</b>합니다!” <br>“무슨 소리, <b>전국민이 알아야</b>해요!”
-		</h3>
+			</h3>
+			</div>
+			<div class="col-1 textalign-center serif container green ">
+			<h3>
+
+			“흉문이 퍼지는 것을 <b>한시라도 막아야</b>합니다!” <br>“무슨 소리, <b>전국민이 알아야</b>해요!”
+			</h3>
+			</div>
+			<div class="col-1 textalign-center serif container blue">
+			<h3>
+
+			“흉문이 퍼지는 것을 <b>한시라도 막아야</b>합니다!” <br>“무슨 소리, <b>전국민이 알아야</b>해요!”
+			</h3>
+			</div>
+		</div>
+		<img src="hand2.png" style="width: 900px;position: absolute; left:0px; top: 570px;">
 	</div>
-	</div>
-	<img src="hand2.png" style="width: 70vw;position: relative; left:-263px; top: -200px;">
+</section>
+<section>
 <div class="row"style=" padding-bottom: 10px;">
 	<div class="col-1 textalign-center" style=" text-shadow: black 0 0 2px;">	
 		───────────────────────────────────────<br><br>
-		<h3>Q1.</h3><h3 style="font-weight: 400;">나는 어떻게 할까?</h3>
+		<h3>Q2.</h3><h3 style="font-weight: 400;">나는 어떻게 할까?</h3>
 		</div>
 	</div>
 	</div>
 	<div class="row" style="padding-top: 20px;">
 		<div class="col-1 textalign-center">
 		<a>전국민에게 알린다</a>
-		<a href="https://gallgal.github.io/princesspig3/">여론을 조작한다</a></div>
+		<a href="https://gallgal.github.io/princesspig3/" style="text-decoration: none;">여론을 조작한다</a></div>
 	</div>
 </section>
 </body>
